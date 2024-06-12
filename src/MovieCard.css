@@ -1,0 +1,22 @@
+.MovieCard{
+    border-width: 0.5px;
+    border-style: solid;
+    border-color: black;
+    border-radius: 6px;
+    height: 550px;
+    width: 330px;
+}
+
+.MovieCard:hover{
+    box-shadow: 2px 2px 5px 0px #5a5a5a;
+    border-radius: 0px 0px 16px 16px;
+    /* margin-right: 93px;*/
+    margin-bottom: 20px;
+}
+
+.MovieImage{
+    margin-top: 5%;
+    width: 270px;
+    height: 410px;
+
+}
