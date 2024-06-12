@@ -4,12 +4,33 @@
 
 .App-header {
   background-color: #282c34;
-  display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
   color: white;
   padding: 20px;
+}
+
+.search-input{
+  flex-direction: column;
+  height: 25px;
+  width: 150px;
+}
+
+.HeaderBtm{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+
+
+}
+
+.sort-by{
+  margin-left: 20px;
+}
+
+.SearchBtn{
+  height: 33px;
 }
 
 @media (max-width: 600px) {
@@ -22,7 +43,5 @@
     gap: 10px;
   }
 
-  .search-bar form {
-    flex-direction: column;
-  }
+
 }
