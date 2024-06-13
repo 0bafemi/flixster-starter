@@ -1,3 +1,4 @@
+//import { useState } from 'react'
 import { useState } from 'react'
 import './App.css'
 import MovieList from './MovieList'
@@ -5,6 +6,14 @@ import MovieList from './MovieList'
 
 
 const App = () => {
+
+  const [text, setText] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const handleChange = function (event) {
+    setText(event.target.value);
+  }
+
 
 
   return (
@@ -15,20 +24,22 @@ const App = () => {
       </div>
       <div className='HeaderBtm'>
         <div className='search-bar'>
-          <input className='search-input' type="text" placeholder='Search For Movies'/>
-          <button className='SearchBtn'>Search</button>
+          <input className='search-input' type="text" placeholder='Search For Movies' onChange={handleChange} value={text}/>
+          <button className="SearchBtn" onClick={() => {
+            setSearchTerm(text);
+          }}>Search</button>
         </div>
-        <div className='sort-by'>
+        {/* <div className='sort-by'>
           <select className="sort" id="sort" >
               <option value="" disabled selected>Sort By</option>
               <option value="popularity">Popularity Descending</option>
               <option value="release">Release Date Descending</option>
               <option value="rating">Rating Descending</option>
             </select>
-        </div>
+        </div> */}
       </div>
     </div>
-    <MovieList/>
+    <MovieList  searchTerm={searchTerm} />
   </div>
   )
 }
