@@ -9,9 +9,10 @@ const App = () => {
 
   const [text, setText] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
+  const [sortBy, setSortBy] = useState("");
 
   const GetPlaying = function () {
-    setSearchTerm("")
+    setSearchTerm()
   }
 
   const handleChange = function (event) {
@@ -20,6 +21,11 @@ const App = () => {
 
   const handleSearch = () => {
     setSearchTerm(text);
+  }
+
+  const handleSort = (e) => {
+    console.log(e.target.value)
+    setSortBy(e.target.value);
   }
 
   return (
@@ -35,16 +41,16 @@ const App = () => {
           <button className="nowPlaying" onClick={GetPlaying}>Now Playing</button>
         </div>
         <div className='sort-by'>
-          <select className="sort" id="sort" >
+          <select className="sort" id="sort" onChange={handleSort}>
             <option value="" disabled selected>Sort By</option>
             <option value="popularity">Popularity Descending</option>
-            <option value="release">Release Date Descending</option>
-            <option value="rating">Rating Descending</option>
+            <option value="primary_release_date">Release Date Descending</option>
+            <option value="vote_average">Rating Descending</option>
           </select>
         </div>
       </div>
     </div>
-    <MovieList searchTerm = {searchTerm}/>
+    <MovieList searchTerm = {searchTerm} sortBy={sortBy}/>
   </div>
   )
 }

@@ -3,7 +3,7 @@
     border-style: solid;
     border-color: black;
     border-radius: 6px;
-    height: 550px;
+    height: 560px;
     width: 330px;
 }
 
@@ -18,5 +18,9 @@
     margin-top: 5%;
     width: 270px;
     height: 410px;
+
+}
+.watched{
+    margin-left:190px;
 
 }

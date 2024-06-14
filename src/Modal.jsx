@@ -2,6 +2,8 @@ import React from "react"
 import './Modal.css'
 
 const MovieModal = ({movie, onClose}) => {
+    // const [selectedMovie, setSelectedMovie] = useState(null);
+
     if (!movie){
         return null;
     }
@@ -11,7 +13,7 @@ const MovieModal = ({movie, onClose}) => {
             onClose();
         }
     };
-    console.log(movie)
+    // console.log(movie);
     return (
         <div className="modal-overlay" onClick={handleOverlayClick}>
             <div className="modal-content">
@@ -20,9 +22,12 @@ const MovieModal = ({movie, onClose}) => {
                 <h3>{movie.original_title}</h3>
                 <p>Rating: {movie.vote_average}</p>
                 <p>Release Date: {movie.release_date}</p>
-                <p>Genres: {movie.vote_average}</p>
                 <p>Overview: {movie.overview}</p>
+                {/* <div className ="trailer">
+                    <iframe width="500" height="300" src={`https://www.youtube.com/embed/${props.movie.videos.results[0].key}`} allowfullscreen></iframe>
+                </div> */}
             </div>
+
         </div>
       );
 };

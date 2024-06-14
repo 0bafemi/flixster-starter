@@ -14,29 +14,31 @@
     .catch(err => console.error(err));
   }
 
-  async function GetPlaying(api_key, page) {
-      return fetch(`https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=${page}&sort_by=popularity.desc&api_key=${api_key}`)
+  async function GetPlaying(api_key, page, sort_by) {
+
+
+      return fetch(`https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=${page}&sort_by=${sort_by}.desc&api_key=${api_key}`)
       .then(response => response.json())
       .then(data => {
-          return data.results;}
+          return data.results}
           )
 
       .catch(err => console.error(err));
   }
 
   async function getDetails(api_key, movieId) {
-    return fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}&lamguage=en-US`)
+    return fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${api_key}&lamguage=en-US&append_to_response=videos`)
     .then(response => response.json())
     .then(data => {
+      console.log(data);
         return data.results;
 
     })
     .catch(err => console.error(err));
   }
 
-  function MovieList({searchTerm}) {
+  function MovieList({searchTerm, sortBy}) {
       const MOVIE_API_KEY = import.meta.env.VITE_API_KEY
-
 
       const [movies, setMovies] = useState([]);
       const [currentPage, setCurrentPage] = useState(1);
@@ -45,13 +47,13 @@
       console.log(searchTerm)
 
     useEffect(() => {
-      GetPlaying(MOVIE_API_KEY, currentPage)
+      GetPlaying(MOVIE_API_KEY, currentPage, sortBy)
         .then(data => {
           // let unique_movies = new Set( [...movies, ...data.results]);
           // unique_movies = [...unique_movies];
             setMovies(currentPage == 1 ? data:[...movies, ...data]);
         });
-    }, [MOVIE_API_KEY, currentPage]);
+    }, [MOVIE_API_KEY, currentPage, sortBy]);
 
     useEffect(() => {
       if (searchTerm){
@@ -61,21 +63,26 @@
           });
       }
       else{
-        GetPlaying(MOVIE_API_KEY, currentPage)
+        GetPlaying(MOVIE_API_KEY, currentPage, sortBy)
         .then(data => {
           // let unique_movies = new Set( [...movies, ...data.results]);
           // unique_movies = [...unique_movies];
             setMovies(currentPage == 1 ? data:[...movies, ...data]);
         });
       }
-    }, [searchTerm,MOVIE_API_KEY]);
+    }, [searchTerm,MOVIE_API_KEY, sortBy]);
 
     const loadMore = async () => {
         setCurrentPage(prevPage => prevPage + 1);
       };
 
     const handleMovieClick = (movie) => {
-      setSelectedMovie(movie);
+      const MOVIE_API_KEY = import.meta.env.VITE_API_KEY
+      // console.log(movie)
+      setSelectedMovie(getDetails(MOVIE_API_KEY, movie.id));
+      // console.log(selectedMovie);
+      // setSelectedMovie(movie);
+      // let movieDetails = getDetails(MOVIE_API_KEY, movie.id);
     };
 
     const closeModal = () => {
@@ -89,6 +96,7 @@
         // };
 
     return (
+
       <div className="movie-list">
         <div className="movie-page">
           {movies.map(movie => {
