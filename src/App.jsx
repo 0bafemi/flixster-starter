@@ -1,7 +1,8 @@
-//import { useState } from 'react'
 import { useState } from 'react'
 import './App.css'
 import MovieList from './MovieList'
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
+import {faEye, faHeart} from "@fortawesome/free-solid-svg-icons"
 
 
 
@@ -24,29 +25,29 @@ const App = () => {
   }
 
   const handleSort = (e) => {
-    console.log(e.target.value)
     setSortBy(e.target.value);
   }
 
   return (
   <div className="App">
-    <div className='App-header'>
+    <div className='AppHeader'>
       <div>
-        <h1>Flixster</h1>
+      <h1>NetFlixster</h1>
       </div>
       <div className='HeaderBtm'>
-        <div className='search-bar'>
-          <input className='search-input' type="text" placeholder='Search For Movies' onChange={handleChange} value={text}/>
+        <div className='SearchBar'>
+          <input className='SearchInput' type="text" placeholder='Search For Movies' onChange={handleChange} value={text}/>
           <button className="SearchBtn" onClick={handleSearch}>Search</button>
-          <button className="nowPlaying" onClick={GetPlaying}>Now Playing</button>
+          <button className="NowPlaying" onClick={GetPlaying}>Now Playing</button>
         </div>
-        <div className='sort-by'>
-          <select className="sort" id="sort" onChange={handleSort}>
+        <div className='SortBy'>
+          <select className="Sort" id="sort" onChange={handleSort}>
             <option value="" disabled selected>Sort By</option>
             <option value="popularity">Popularity Descending</option>
             <option value="primary_release_date">Release Date Descending</option>
             <option value="vote_average">Rating Descending</option>
           </select>
+          <div className="Arrow"></div>
         </div>
       </div>
     </div>

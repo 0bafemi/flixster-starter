@@ -1,10 +1,10 @@
-body {
+Body {
   margin: 0;
   font-family: Arial, sans-serif;
   background-color: #f4f4f4;
 }
 
-button {
+Button {
   background-color: #282c34;
   color: white;
   cursor: pointer;
@@ -13,7 +13,7 @@ button {
   transition: background-color 0.3s ease;
 }
 
-button:hover {
+Button:hover {
   background-color: #777;
   color: white;
 }

@@ -27,14 +27,14 @@
   }
 
   async function getDetails(api_key, movieId) {
-    return fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${api_key}&lamguage=en-US&append_to_response=videos`)
-    .then(response => response.json())
-    .then(data => {
-      console.log(data);
-        return data.results;
+    try {
 
-    })
-    .catch(err => console.error(err));
+      const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${api_key}&lamguage=en-US&append_to_response=videos`)
+      const movieData = await response.json()
+      return movieData
+    } catch(e) {
+        console.error(e)
+    }
   }
 
   function MovieList({searchTerm, sortBy}) {
@@ -44,13 +44,10 @@
       const [currentPage, setCurrentPage] = useState(1);
       const [selectedMovie, setSelectedMovie] = useState(null);
 
-      console.log(searchTerm)
 
     useEffect(() => {
       GetPlaying(MOVIE_API_KEY, currentPage, sortBy)
         .then(data => {
-          // let unique_movies = new Set( [...movies, ...data.results]);
-          // unique_movies = [...unique_movies];
             setMovies(currentPage == 1 ? data:[...movies, ...data]);
         });
     }, [MOVIE_API_KEY, currentPage, sortBy]);
@@ -65,8 +62,6 @@
       else{
         GetPlaying(MOVIE_API_KEY, currentPage, sortBy)
         .then(data => {
-          // let unique_movies = new Set( [...movies, ...data.results]);
-          // unique_movies = [...unique_movies];
             setMovies(currentPage == 1 ? data:[...movies, ...data]);
         });
       }
@@ -76,24 +71,15 @@
         setCurrentPage(prevPage => prevPage + 1);
       };
 
-    const handleMovieClick = (movie) => {
+    const handleMovieClick = async (movie) => {
       const MOVIE_API_KEY = import.meta.env.VITE_API_KEY
-      // console.log(movie)
-      setSelectedMovie(getDetails(MOVIE_API_KEY, movie.id));
-      // console.log(selectedMovie);
-      // setSelectedMovie(movie);
-      // let movieDetails = getDetails(MOVIE_API_KEY, movie.id);
+      const movieInfo = await getDetails(MOVIE_API_KEY, movie.id)
+      setSelectedMovie(movieInfo);
     };
 
     const closeModal = () => {
       setSelectedMovie(null);
     };
-
-        // const loadMore = async () => {
-        //   const newMovies = await GetPlaying(MOVIE_API_KEY, currentPage + 1);
-        //   setMovies([...movies, ...newMovies.results]);
-        //   setCurrentPage(prevPage => prevPage + 1);
-        // };
 
     return (
 
@@ -104,7 +90,7 @@
           })}
         </div>
         <div className="load-more">
-          <button  onClick={loadMore}>Load More</button>
+          <button className="loadmore"  onClick={loadMore}>Load More</button>
         </div>
         {selectedMovie && <MovieModal movie={selectedMovie} onClose={closeModal} />}
         <footer>

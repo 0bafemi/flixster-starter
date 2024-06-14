@@ -1,26 +1,27 @@
 .MovieCard{
-    border-width: 0.5px;
+    border-width: 0.1px;
     border-style: solid;
     border-color: black;
     border-radius: 6px;
-    height: 560px;
+    height: 650px;
     width: 330px;
+    color: white
 }
 
 .MovieCard:hover{
-    box-shadow: 2px 2px 5px 0px #5a5a5a;
+    box-shadow: 2px 2px 5px 0px #1c2432;
     border-radius: 0px 0px 16px 16px;
     /* margin-right: 93px;*/
     margin-bottom: 20px;
 }
 
 .MovieImage{
-    margin-top: 5%;
-    width: 270px;
-    height: 410px;
+    width: 330px;
+    height: 440px;
+    margin-bottom: 10px;
 
 }
-.watched{
+.Watched{
     margin-left:190px;
 
 }

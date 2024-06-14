@@ -1,6 +1,6 @@
 /* MovieModal.css */
 
-.modal-overlay {
+.ModalOverlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -13,17 +13,31 @@
     z-index: 1000;
   }
 
-  .modal-content {
-    background: #fff;
+  .ModalContent {
+    background: #6289a3;
     padding: 20px;
     border-radius: 10px;
-    width: 80%;
+    width: 100%;
     max-width: 500px;
+    height: 700px;
     text-align: left;
     position: relative;
+    color: white;
+    animation: modalFadeIn 0.3s ease-in-out forwards;
   }
 
-  .close-button {
+@keyframes modalFadeIn {
+    0%{
+        opacity: 0;
+        transform:scale(0.8);
+    }
+    100%{
+        opacity: 1;
+        transform:scale(1);
+    }
+}
+
+  .CloseButton {
     position: absolute;
     top: 10px;
     right: 10px;
@@ -31,7 +45,12 @@
     cursor: pointer;
   }
 
-  .modal-movie-image {
+  .ModalMovieImage{
     width: 100%;
     border-radius: 10px;
+  }
+
+  .Trailer{
+    height: 320px;
+    width: 500px;
   }

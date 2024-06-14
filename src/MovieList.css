@@ -1,6 +1,4 @@
 .movie-list{
-    padding-top: 30px;
-    padding-top: 30px;
     flex-wrap: wrap;
     justify-content: center;
     gap: 4em;
@@ -8,6 +6,7 @@
 }
 
 .movie-page{
+    background-image: linear-gradient(135deg, #144976, #6289a3);
     padding-top: 30px;
     padding-top: 30px;
     display: flex;
@@ -20,12 +19,32 @@
 
 .load-more{
     padding-top: 1%;
+    background-color: #6289a3;
+    height: 40px;
+    justify-content:center;
 }
 
 footer{
-    background-color: #282c34;
+    background-color: rgba(20, 73, 120, 0.8);
+    padding-top: 10px;
     bottom: 0;
     height: 50px;
     width: 100%;
-    margin-top: 25px;
 }
+
+.loadmore {
+    height:31px;
+    margin-left: 10px;
+    display: inline-block; /* Allows for vertical alignment */
+    font-size: 16px; /* Adjust font size as needed */
+    border: 2px solid #6289a3; /* Example border color */
+    border-radius: 25px; /* Rounded corners */
+    outline: none;
+    color: #1c2432; /* Text color */
+    background-color: #a4bbc7; /* Background color */
+  }
+
+.loadmore:hover {
+    cursor: pointer; /* Adds a pointer cursor on hover */
+    background-color: #3e6e9c; /* Change background color on hover */
+  }

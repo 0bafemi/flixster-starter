@@ -1,4 +1,3 @@
-// import PropType from 'prop-types';
 import './MovieCard.css'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 import {faEye, faHeart} from "@fortawesome/free-solid-svg-icons"
@@ -7,8 +6,6 @@ import {useState} from "react";
 function MovieCard ({movie, onClick}) {
     const [liked, setLiked] = useState(false);
     const [watched, setWatched] = useState(false);
-    // fetchNowPlaying()
-    // const movie = props.movie;
     const handleLikeClick = () => {
         setLiked(!liked);
     }
@@ -29,7 +26,7 @@ function MovieCard ({movie, onClick}) {
                     }
                 }
             />
-            <FontAwesomeIcon className="watched" icon={faEye} color={watched ? "green" : "white"} onClick={
+            <FontAwesomeIcon className="Watched" icon={faEye} color={watched ? "green" : "white"} onClick={
                 (i) => {
                     i.stopPropagation();
                     handleWatchClick();
