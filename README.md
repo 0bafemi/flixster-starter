@@ -1,12 +1,10 @@
-📝 `NOTE` Use this template to initialize the contents of a README.md file for your application. As you work on your assignment over the course of the week, update the required or stretch features lists to indicate which features you have completed by changing `[ ]` to `[x]`. (🚫 Remove this paragraph before submitting your assignment.)
-
 ## Unit Assignment: Flixster
 
-Submitted by: **NAME**
+Submitted by: **Obafemi Oduola**
 
-Estimated time spent: **#** hours spent in total
+Estimated time spent: **18** hours spent in total
 
-Deployed Application (optional): [Flixster Deployed Site](ADD_LINK_HERE)
+Deployed Application (optional): [Flixster Deployed Site](https://flixster-starter-o896.onrender.com)
 
 ### Application Features
 
@@ -33,10 +31,10 @@ Deployed Application (optional): [Flixster Deployed Site](ADD_LINK_HERE)
 
 #### STRETCH FEATURES
 
-- [ ] **Deployment**
+- [x] **Deployment**
   - [ ] Website is deployed via Render.
-- [ ] **Embedded Movie Trailers**
-  - [ ] Within the popup displaying a movie's details, users can play the movie trailer.
+- [x] **Embedded Movie Trailers**
+  - [x] Within the popup displaying a movie's details, users can play the movie trailer.
 - [x] **Watched Checkbox**
   - [x] For each movie displayed, users can mark the movie as watched.
 - [x] **Favorite Button**
@@ -47,23 +45,21 @@ Deployed Application (optional): [Flixster Deployed Site](ADD_LINK_HERE)
 
 ### Walkthrough Video
 
-`TODO://` Add the embedded URL code to your animated app walkthrough below, `ADD_EMBEDDED_CODE_HERE`. Make sure the video or gif actually renders and animates when viewing this README. (🚫 Remove this paragraph after adding walkthrough video)
-
-`ADD_EMBEDDED_CODE_HERE`
+<div style="position: relative; padding-bottom: 55.52083333333333%; height: 0;"><iframe src="https://www.loom.com/embed/08ed690f60ec42cda6eef5f3b4fb5855?sid=cc28b84f-75d8-4111-8502-4d9fb3285e8a" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
 
 ### Reflection
 
 * Did the topics discussed in your labs prepare you to complete the assignment? Be specific, which features in your weekly assignment did you feel unprepared to complete?
 
-Add your response here
+The topics definitely did, a resourse i really loved was the doc file created by paige explaining react forms.
 
 * If you had more time, what would you have done differently? Would you have added additional features? Changed the way your project responded to a particular event, etc.
 
-Add your response here
+Having more time I would have added a side bar that appends the favorites and likes upon that button being clicked, I would also like to use my trailer as a background upon opening my modal
 
 * Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
 
-Add your response here
+Something I really liked was Ian's favorite tabs i wasnt able to make mine as stretch but I would make sure to manage my time well and complete all my stretches next week
 
 ### Open-source libraries used
 
